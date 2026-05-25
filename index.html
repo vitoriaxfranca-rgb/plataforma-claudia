@@ -547,8 +547,28 @@ function switchView(v, el) {
 
 function toggleCheck(item) {
   item.classList.toggle('done');
+  saveChecklist();
   updateProgress();
 }
+
+function saveChecklist() {
+  const items = document.querySelectorAll('.check-item');
+  const state = Array.from(items).map(i => i.classList.contains('done'));
+  localStorage.setItem('claudia-checklist', JSON.stringify(state));
+}
+
+function loadChecklist() {
+  const saved = localStorage.getItem('claudia-checklist');
+  if (!saved) return;
+  const state = JSON.parse(saved);
+  const items = document.querySelectorAll('.check-item');
+  items.forEach((item, i) => {
+    if (state[i]) item.classList.add('done');
+  });
+  updateProgress();
+}
+
+window.addEventListener('DOMContentLoaded', loadChecklist);
 
 function updateProgress() {
   const total = document.querySelectorAll('.check-item').length;

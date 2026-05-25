@@ -1,268 +1,471 @@
-
 <!DOCTYPE html>
-<html>
+<html lang="pt-BR">
 <head>
 <meta charset="UTF-8">
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;700&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>REVIVA · Cláudia · João Pessoa</title>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 <style>
 :root {
-  --bg: #0e0e0f;
-  --surface: #161617;
-  --surface2: #1e1e20;
-  --border: rgba(255,255,255,0.07);
-  --border2: rgba(255,255,255,0.12);
-  --text: #f0ede8;
-  --text2: #9a9691;
-  --text3: #5a5753;
-  --azul: #4a9eff;
-  --azul-bg: rgba(74,158,255,0.08);
-  --azul-border: rgba(74,158,255,0.2);
-  --declara: #b78fff;
-  --declara-bg: rgba(183,143,255,0.08);
-  --declara-border: rgba(183,143,255,0.2);
-  --gold: #e8c97a;
-  --green: #6fcf97;
+  --azul: #1a6fd4;
+  --azul-light: #e8f1fc;
+  --azul-mid: #b8d4f5;
+  --azul-dark: #0f4d9e;
+  --declara: #7c3aed;
+  --declara-light: #f0ebff;
+  --declara-mid: #d4bbf9;
+  --declara-dark: #5b21b6;
+  --gold: #f59e0b;
+  --gold-light: #fef3c7;
+  --green: #059669;
+  --green-light: #d1fae5;
+  --red: #dc2626;
+  --bg: #f8f9fb;
+  --white: #ffffff;
+  --gray-50: #f9fafb;
+  --gray-100: #f3f4f6;
+  --gray-200: #e5e7eb;
+  --gray-300: #d1d5db;
+  --gray-400: #9ca3af;
+  --gray-500: #6b7280;
+  --gray-700: #374151;
+  --gray-900: #111827;
+  --shadow-sm: 0 1px 3px rgba(0,0,0,0.08), 0 1px 2px rgba(0,0,0,0.04);
+  --shadow: 0 4px 12px rgba(0,0,0,0.08), 0 2px 4px rgba(0,0,0,0.04);
+  --shadow-lg: 0 10px 30px rgba(0,0,0,0.1), 0 4px 8px rgba(0,0,0,0.06);
+  --radius: 16px;
+  --radius-sm: 10px;
+  --radius-xs: 6px;
 }
-* { box-sizing: border-box; margin: 0; padding: 0; }
-body { background: var(--bg); color: var(--text); font-family: 'DM Sans', sans-serif; font-size: 14px; min-height: 100vh; }
-.platform-header { padding: 24px 28px 0; border-bottom: 0.5px solid var(--border); }
-.platform-top { display: flex; align-items: flex-start; justify-content: space-between; margin-bottom: 20px; }
-.platform-brand h1 { font-family: 'Playfair Display', serif; font-size: 22px; font-weight: 500; color: var(--text); letter-spacing: -0.3px; }
-.platform-brand p { font-size: 11px; color: var(--text2); margin-top: 2px; letter-spacing: 0.3px; }
-.platform-meta { text-align: right; }
-.meta-item { font-size: 11px; color: var(--text3); margin-bottom: 2px; }
-.meta-item span { color: var(--text2); }
-.tabs { display: flex; gap: 0; }
-.tab { padding: 10px 20px; font-size: 12px; font-weight: 500; color: var(--text3); cursor: pointer; border-bottom: 2px solid transparent; transition: all 0.2s; letter-spacing: 0.3px; text-transform: uppercase; }
-.tab:hover { color: var(--text2); }
-.tab.active { color: var(--text); border-bottom-color: var(--gold); }
-.main { padding: 24px 28px; }
+* { box-sizing: border-box; margin: 0; padding: 0; -webkit-tap-highlight-color: transparent; }
+body { background: var(--bg); font-family: 'Montserrat', sans-serif; color: var(--gray-900); min-height: 100vh; }
+
+/* HEADER */
+.header { background: var(--white); border-bottom: 1px solid var(--gray-200); padding: 0 20px; position: sticky; top: 0; z-index: 50; box-shadow: var(--shadow-sm); }
+.header-inner { max-width: 480px; margin: 0 auto; }
+.header-top { display: flex; align-items: center; justify-content: space-between; padding: 16px 0 12px; }
+.brand { display: flex; flex-direction: column; }
+.brand-name { font-size: 20px; font-weight: 800; color: var(--gray-900); letter-spacing: -0.5px; }
+.brand-sub { font-size: 11px; color: var(--gray-400); font-weight: 500; letter-spacing: 0.3px; margin-top: 1px; }
+.progress-badge { display: flex; align-items: center; gap: 8px; background: var(--green-light); border: 1px solid #a7f3d0; border-radius: 30px; padding: 6px 12px; }
+.progress-badge-pct { font-size: 15px; font-weight: 800; color: var(--green); }
+.progress-badge-label { font-size: 10px; color: var(--green); font-weight: 600; }
+.nav-tabs { display: flex; gap: 0; border-top: 1px solid var(--gray-100); }
+.nav-tab { flex: 1; padding: 11px 4px; font-size: 11px; font-weight: 600; color: var(--gray-400); text-align: center; cursor: pointer; border-bottom: 2px solid transparent; letter-spacing: 0.4px; text-transform: uppercase; transition: all 0.2s; }
+.nav-tab.active { color: var(--gray-900); border-bottom-color: var(--gray-900); }
+
+/* MAIN */
+.main { max-width: 480px; margin: 0 auto; padding: 20px 16px 40px; }
 .view { display: none; }
 .view.active { display: block; }
-.cal-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; }
-.day-num { font-family: 'Playfair Display', serif; font-size: 32px; font-weight: 400; color: var(--text); line-height: 1; }
-.day-name { font-size: 10px; color: var(--text3); letter-spacing: 0.8px; text-transform: uppercase; margin-top: 2px; }
-.day-date { font-size: 10px; color: var(--text3); }
-.day-divider { height: 0.5px; background: var(--border); margin: 10px 0; }
-.reel-btn { width: 100%; background: var(--surface); border: 0.5px solid var(--border); border-radius: 10px; padding: 12px; cursor: pointer; text-align: left; transition: all 0.18s; margin-bottom: 8px; display: block; }
-.reel-btn:hover { background: var(--surface2); border-color: var(--border2); transform: translateY(-1px); }
-.reel-agency { font-size: 10px; font-weight: 500; letter-spacing: 0.4px; text-transform: uppercase; margin-bottom: 6px; }
-.agency-azul { color: var(--azul); }
-.agency-declara { color: var(--declara); }
-.reel-title-short { font-size: 12px; color: var(--text); line-height: 1.4; margin-bottom: 6px; font-weight: 500; }
-.reel-hook-preview { font-size: 11px; color: var(--text2); font-style: italic; line-height: 1.4; }
-.reel-tags-row { display: flex; gap: 4px; flex-wrap: wrap; margin-top: 7px; }
-.rtag { font-size: 9px; padding: 2px 6px; border-radius: 20px; background: rgba(255,255,255,0.04); border: 0.5px solid var(--border); color: var(--text3); }
-.detail-overlay { display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.6); z-index: 100; align-items: flex-end; justify-content: center; backdrop-filter: blur(4px); }
-.detail-overlay.open { display: flex; }
-.detail-drawer { background: var(--surface); border-top: 0.5px solid var(--border2); border-radius: 20px 20px 0 0; width: 100%; max-width: 680px; max-height: 80vh; overflow-y: auto; animation: slideUp 0.25s ease; }
-@keyframes slideUp { from { transform: translateY(40px); opacity: 0; } to { transform: translateY(0); opacity: 1; } }
-.drawer-handle { width: 36px; height: 3px; background: var(--border2); border-radius: 2px; margin: 12px auto 0; }
-.drawer-header { padding: 16px 24px 14px; border-bottom: 0.5px solid var(--border); display: flex; align-items: flex-start; justify-content: space-between; gap: 12px; }
-.drawer-agency { font-size: 10px; font-weight: 500; letter-spacing: 0.4px; text-transform: uppercase; margin-bottom: 4px; }
-.drawer-title { font-family: 'Playfair Display', serif; font-size: 18px; font-weight: 500; color: var(--text); line-height: 1.3; }
-.close-x { background: var(--surface2); border: 0.5px solid var(--border); color: var(--text2); width: 28px; height: 28px; border-radius: 50%; cursor: pointer; font-size: 14px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; margin-top: 2px; }
-.close-x:hover { color: var(--text); }
-.drawer-tabs { display: flex; border-bottom: 0.5px solid var(--border); padding: 0 24px; }
-.dtab { padding: 10px 16px; font-size: 11px; font-weight: 500; color: var(--text3); cursor: pointer; border-bottom: 2px solid transparent; text-transform: uppercase; letter-spacing: 0.4px; transition: all 0.15s; }
-.dtab:hover { color: var(--text2); }
-.dtab.active { color: var(--text); border-bottom-color: var(--gold); }
-.drawer-content { padding: 20px 24px; }
-.dc-view { display: none; }
-.dc-view.active { display: block; }
-.block { margin-bottom: 16px; }
-.block-label { font-size: 10px; font-weight: 500; letter-spacing: 0.7px; text-transform: uppercase; color: var(--text3); margin-bottom: 6px; }
-.block-cena { font-size: 12px; color: var(--text2); line-height: 1.65; padding: 10px 14px; background: rgba(74,158,255,0.06); border-radius: 8px; border-left: 2px solid rgba(74,158,255,0.3); }
-.block-gancho { font-size: 16px; font-weight: 500; color: var(--text); line-height: 1.55; padding: 12px 16px; background: rgba(183,143,255,0.08); border-radius: 8px; border-left: 3px solid var(--declara); font-family: 'Playfair Display', serif; }
-.block-fala { font-size: 13px; color: var(--text); line-height: 1.85; padding: 12px 14px; background: var(--surface2); border-radius: 8px; border-left: 2px solid rgba(183,143,255,0.3); }
-.block-fala em { font-style: normal; color: var(--text3); font-size: 11px; display: block; margin-bottom: 5px; }
-.block-enc { font-size: 13px; color: var(--text); line-height: 1.65; padding: 10px 14px; background: rgba(111,207,151,0.07); border-radius: 8px; border-left: 2px solid rgba(111,207,151,0.4); }
-.block-cta { font-size: 13px; color: var(--text2); line-height: 1.65; padding: 10px 14px; background: var(--surface2); border-radius: 8px; border-left: 2px solid var(--gold); }
-.block-nota { font-size: 11px; color: var(--text3); padding: 8px 12px; background: rgba(232,201,122,0.06); border-radius: 8px; border: 0.5px dashed rgba(232,201,122,0.2); margin-top: -8px; }
-.roteiros-list { display: flex; flex-direction: column; gap: 10px; }
-.roteiro-row { background: var(--surface); border: 0.5px solid var(--border); border-radius: 10px; padding: 14px 18px; display: flex; align-items: center; gap: 14px; cursor: pointer; transition: all 0.18s; }
-.roteiro-row:hover { background: var(--surface2); border-color: var(--border2); }
-.roteiro-day-badge { font-size: 10px; color: var(--text3); min-width: 60px; }
-.roteiro-agency-dot { width: 8px; height: 8px; border-radius: 50%; flex-shrink: 0; }
+
+/* META DO DIA */
+.meta-banner { background: linear-gradient(135deg, #1a6fd4 0%, #7c3aed 100%); border-radius: var(--radius); padding: 20px; margin-bottom: 20px; color: white; position: relative; overflow: hidden; }
+.meta-banner::before { content: ''; position: absolute; top: -20px; right: -20px; width: 100px; height: 100px; background: rgba(255,255,255,0.08); border-radius: 50%; }
+.meta-banner::after { content: ''; position: absolute; bottom: -30px; right: 20px; width: 70px; height: 70px; background: rgba(255,255,255,0.05); border-radius: 50%; }
+.meta-label { font-size: 10px; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; opacity: 0.8; margin-bottom: 6px; }
+.meta-title { font-size: 17px; font-weight: 700; line-height: 1.3; margin-bottom: 14px; }
+.meta-progress-row { display: flex; align-items: center; gap: 10px; }
+.meta-bar-wrap { flex: 1; height: 6px; background: rgba(255,255,255,0.2); border-radius: 3px; overflow: hidden; }
+.meta-bar-fill { height: 100%; background: white; border-radius: 3px; transition: width 0.5s ease; }
+.meta-pct { font-size: 14px; font-weight: 800; }
+.meta-tasks { font-size: 11px; opacity: 0.8; margin-top: 6px; }
+
+/* DAY SECTION */
+.day-section { margin-bottom: 24px; }
+.day-header { display: flex; align-items: baseline; gap: 10px; margin-bottom: 12px; padding: 0 4px; }
+.day-num { font-size: 36px; font-weight: 800; color: var(--gray-900); line-height: 1; }
+.day-info { display: flex; flex-direction: column; }
+.day-name { font-size: 13px; font-weight: 700; color: var(--gray-700); text-transform: uppercase; letter-spacing: 0.5px; }
+.day-month { font-size: 11px; color: var(--gray-400); font-weight: 500; }
+.day-today { background: var(--gray-900); color: white; font-size: 9px; font-weight: 700; padding: 2px 7px; border-radius: 20px; letter-spacing: 0.5px; text-transform: uppercase; margin-left: 4px; }
+
+/* REEL CARD */
+.reel-card { background: var(--white); border-radius: var(--radius); box-shadow: var(--shadow-sm); margin-bottom: 12px; overflow: hidden; border: 1.5px solid var(--gray-100); transition: all 0.2s; cursor: pointer; }
+.reel-card:active { transform: scale(0.98); }
+.reel-card-top { padding: 16px 18px 14px; }
+.reel-agency-row { display: flex; align-items: center; gap: 8px; margin-bottom: 10px; }
+.agency-dot { width: 8px; height: 8px; border-radius: 50%; flex-shrink: 0; }
 .dot-azul { background: var(--azul); }
 .dot-declara { background: var(--declara); }
-.roteiro-info { flex: 1; }
-.roteiro-info-title { font-size: 13px; font-weight: 500; color: var(--text); }
-.roteiro-info-hook { font-size: 11px; color: var(--text3); font-style: italic; margin-top: 2px; }
-.roteiro-arrow { color: var(--text3); font-size: 14px; }
-.check-progress { margin-bottom: 16px; }
-.progress-bar { height: 3px; background: var(--surface2); border-radius: 2px; overflow: hidden; margin-top: 6px; }
-.progress-fill { height: 100%; background: var(--green); border-radius: 2px; transition: width 0.3s; }
-.progress-text { font-size: 11px; color: var(--text3); display: flex; justify-content: space-between; }
-.checklist { display: flex; flex-direction: column; gap: 8px; }
-.check-item { background: var(--surface2); border: 0.5px solid var(--border); border-radius: 10px; padding: 12px 14px; display: flex; gap: 12px; align-items: flex-start; cursor: pointer; transition: all 0.15s; }
-.check-item:hover { border-color: var(--border2); }
-.check-item.done { opacity: 0.5; }
-.check-box { width: 18px; height: 18px; border: 1.5px solid var(--border2); border-radius: 5px; flex-shrink: 0; margin-top: 1px; display: flex; align-items: center; justify-content: center; transition: all 0.15s; }
-.check-item.done .check-box { background: var(--green); border-color: var(--green); }
-.check-tick { color: #0e0e0f; font-size: 11px; display: none; }
-.check-item.done .check-tick { display: block; }
+.agency-label { font-size: 10px; font-weight: 700; letter-spacing: 0.6px; text-transform: uppercase; }
+.label-azul { color: var(--azul); }
+.label-declara { color: var(--declara); }
+.agency-badge { font-size: 9px; font-weight: 600; padding: 2px 7px; border-radius: 20px; margin-left: auto; }
+.badge-azul { background: var(--azul-light); color: var(--azul-dark); }
+.badge-declara { background: var(--declara-light); color: var(--declara-dark); }
+.reel-title { font-size: 15px; font-weight: 700; color: var(--gray-900); line-height: 1.35; margin-bottom: 8px; }
+.reel-hook { font-size: 13px; color: var(--gray-500); font-style: italic; line-height: 1.5; padding: 10px 14px; border-radius: var(--radius-xs); margin-bottom: 10px; }
+.hook-azul { background: var(--azul-light); border-left: 3px solid var(--azul); color: var(--azul-dark); }
+.hook-declara { background: var(--declara-light); border-left: 3px solid var(--declara); color: var(--declara-dark); }
+.reel-tags { display: flex; gap: 5px; flex-wrap: wrap; }
+.rtag { font-size: 10px; font-weight: 600; padding: 3px 9px; border-radius: 20px; }
+.rtag-azul { background: var(--azul-light); color: var(--azul); }
+.rtag-declara { background: var(--declara-light); color: var(--declara); }
+.reel-card-footer { padding: 12px 18px; border-top: 1px solid var(--gray-100); display: flex; align-items: center; justify-content: space-between; }
+.reel-footer-label { font-size: 11px; font-weight: 600; color: var(--gray-400); }
+.reel-arrow { width: 28px; height: 28px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 14px; }
+.arrow-azul { background: var(--azul-light); color: var(--azul); }
+.arrow-declara { background: var(--declara-light); color: var(--declara); }
+
+/* DRAWER */
+.overlay { display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.5); z-index: 100; backdrop-filter: blur(3px); }
+.overlay.open { display: flex; align-items: flex-end; justify-content: center; }
+.drawer { background: var(--white); border-radius: 24px 24px 0 0; width: 100%; max-width: 480px; max-height: 88vh; overflow-y: auto; animation: slideUp 0.28s cubic-bezier(0.34, 1.2, 0.64, 1); }
+@keyframes slideUp { from { transform: translateY(60px); opacity: 0; } to { transform: translateY(0); opacity: 1; } }
+.drawer-handle { width: 40px; height: 4px; background: var(--gray-200); border-radius: 2px; margin: 14px auto 0; }
+.drawer-header { padding: 16px 22px 14px; border-bottom: 1px solid var(--gray-100); }
+.drawer-agency-row { display: flex; align-items: center; gap: 8px; margin-bottom: 6px; }
+.drawer-title { font-size: 18px; font-weight: 800; color: var(--gray-900); line-height: 1.3; }
+.drawer-close { position: absolute; right: 18px; top: 18px; width: 32px; height: 32px; border-radius: 50%; background: var(--gray-100); border: none; cursor: pointer; font-size: 16px; display: flex; align-items: center; justify-content: center; color: var(--gray-500); }
+.drawer-tabs { display: flex; border-bottom: 1px solid var(--gray-100); padding: 0 22px; }
+.dtab { padding: 11px 16px; font-size: 11px; font-weight: 700; color: var(--gray-400); cursor: pointer; border-bottom: 2px solid transparent; text-transform: uppercase; letter-spacing: 0.5px; }
+.dtab.active-azul { color: var(--azul); border-bottom-color: var(--azul); }
+.dtab.active-declara { color: var(--declara); border-bottom-color: var(--declara); }
+.drawer-body { padding: 20px 22px 32px; }
+.dc-view { display: none; }
+.dc-view.active { display: block; }
+.dblock { margin-bottom: 18px; }
+.dblock-label { font-size: 10px; font-weight: 700; letter-spacing: 0.8px; text-transform: uppercase; color: var(--gray-400); margin-bottom: 7px; }
+.dblock-cena { font-size: 13px; color: var(--gray-500); line-height: 1.65; padding: 12px 14px; background: var(--gray-50); border-radius: var(--radius-sm); border-left: 3px solid var(--gray-200); }
+.dblock-gancho { font-size: 17px; font-weight: 700; color: var(--gray-900); line-height: 1.5; padding: 14px 16px; border-radius: var(--radius-sm); }
+.gancho-azul { background: var(--azul-light); border-left: 4px solid var(--azul); color: var(--azul-dark); }
+.gancho-declara { background: var(--declara-light); border-left: 4px solid var(--declara); color: var(--declara-dark); }
+.dblock-fala { font-size: 13px; color: var(--gray-700); line-height: 1.85; padding: 14px; background: var(--gray-50); border-radius: var(--radius-sm); border: 1px solid var(--gray-200); }
+.dblock-fala em { font-style: normal; color: var(--gray-400); font-size: 11px; font-weight: 600; display: block; margin-bottom: 6px; text-transform: uppercase; letter-spacing: 0.4px; }
+.dblock-enc { font-size: 14px; font-weight: 700; color: var(--gray-900); line-height: 1.55; padding: 12px 14px; background: var(--green-light); border-radius: var(--radius-sm); border-left: 3px solid var(--green); }
+.dblock-cta { font-size: 13px; color: var(--gray-700); line-height: 1.65; padding: 12px 14px; background: var(--gold-light); border-radius: var(--radius-sm); border-left: 3px solid var(--gold); }
+.dblock-nota { font-size: 12px; color: #92400e; padding: 10px 13px; background: #fef3c7; border-radius: var(--radius-xs); border: 1px dashed var(--gold); margin-top: 6px; font-weight: 500; }
+
+/* ROTEIROS LIST */
+.roteiros-list { display: flex; flex-direction: column; gap: 10px; }
+.roteiro-row { background: var(--white); border-radius: var(--radius-sm); border: 1.5px solid var(--gray-100); padding: 14px 16px; display: flex; align-items: center; gap: 12px; cursor: pointer; transition: all 0.15s; box-shadow: var(--shadow-sm); }
+.roteiro-row:active { transform: scale(0.98); }
+.roteiro-dot { width: 10px; height: 10px; border-radius: 50%; flex-shrink: 0; }
+.roteiro-info { flex: 1; min-width: 0; }
+.roteiro-day { font-size: 10px; font-weight: 600; color: var(--gray-400); margin-bottom: 3px; text-transform: uppercase; letter-spacing: 0.4px; }
+.roteiro-title { font-size: 14px; font-weight: 700; color: var(--gray-900); margin-bottom: 3px; line-height: 1.3; }
+.roteiro-hook { font-size: 12px; color: var(--gray-400); font-style: italic; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.roteiro-arrow { font-size: 18px; color: var(--gray-300); flex-shrink: 0; }
+
+/* CHECKLIST */
+.checklist-header { background: var(--white); border-radius: var(--radius); padding: 20px; margin-bottom: 16px; box-shadow: var(--shadow-sm); border: 1.5px solid var(--gray-100); }
+.checklist-title-row { display: flex; align-items: center; justify-content: space-between; margin-bottom: 14px; }
+.checklist-title { font-size: 16px; font-weight: 800; color: var(--gray-900); }
+.checklist-pct-badge { display: flex; align-items: center; gap: 6px; }
+.pct-circle { width: 48px; height: 48px; position: relative; }
+.pct-circle svg { width: 48px; height: 48px; transform: rotate(-90deg); }
+.pct-bg { fill: none; stroke: var(--gray-100); stroke-width: 4; }
+.pct-fill { fill: none; stroke: var(--green); stroke-width: 4; stroke-linecap: round; stroke-dasharray: 113; stroke-dashoffset: 113; transition: stroke-dashoffset 0.6s ease; }
+.pct-text { position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; font-size: 11px; font-weight: 800; color: var(--green); }
+.checklist-bar-wrap { height: 8px; background: var(--gray-100); border-radius: 4px; overflow: hidden; margin-bottom: 6px; }
+.checklist-bar-fill { height: 100%; background: linear-gradient(90deg, var(--green) 0%, #34d399 100%); border-radius: 4px; transition: width 0.5s ease; }
+.checklist-bar-text { font-size: 11px; color: var(--gray-400); font-weight: 600; text-align: right; }
+.check-list { display: flex; flex-direction: column; gap: 8px; }
+.check-item { background: var(--white); border: 1.5px solid var(--gray-100); border-radius: var(--radius-sm); padding: 14px; display: flex; gap: 12px; align-items: flex-start; cursor: pointer; transition: all 0.15s; box-shadow: var(--shadow-sm); }
+.check-item.done { opacity: 0.6; background: var(--gray-50); }
+.check-item.done .check-title { text-decoration: line-through; color: var(--gray-400); }
+.checkbox { width: 22px; height: 22px; border: 2px solid var(--gray-300); border-radius: 6px; flex-shrink: 0; display: flex; align-items: center; justify-content: center; transition: all 0.2s; margin-top: 1px; }
+.check-item.done .checkbox { background: var(--green); border-color: var(--green); }
+.checkmark { color: white; font-size: 13px; display: none; }
+.check-item.done .checkmark { display: block; }
 .check-body { flex: 1; }
-.check-title { font-size: 13px; font-weight: 500; color: var(--text); margin-bottom: 3px; }
-.check-meta { display: flex; gap: 6px; flex-wrap: wrap; margin-bottom: 3px; }
-.cmeta { font-size: 10px; padding: 1px 7px; border-radius: 20px; }
-.cmeta-dur { background: rgba(74,158,255,0.1); color: var(--azul); }
-.cmeta-pos { background: rgba(183,143,255,0.1); color: var(--declara); }
-.cmeta-tipo { background: rgba(111,207,151,0.1); color: var(--green); }
-.check-desc { font-size: 11px; color: var(--text3); line-height: 1.5; }
+.check-title { font-size: 13px; font-weight: 700; color: var(--gray-900); margin-bottom: 5px; line-height: 1.3; }
+.check-metas { display: flex; gap: 5px; flex-wrap: wrap; margin-bottom: 4px; }
+.cmeta { font-size: 10px; font-weight: 600; padding: 2px 8px; border-radius: 20px; }
+.cmeta-dur { background: var(--azul-light); color: var(--azul); }
+.cmeta-pos { background: var(--declara-light); color: var(--declara); }
+.cmeta-tipo { background: var(--green-light); color: var(--green); }
+.check-desc { font-size: 12px; color: var(--gray-400); line-height: 1.5; }
+
+/* SECTION DIVIDER */
+.section-divider { font-size: 11px; font-weight: 700; color: var(--gray-400); letter-spacing: 0.8px; text-transform: uppercase; margin: 20px 4px 10px; display: flex; align-items: center; gap: 8px; }
+.section-divider::after { content: ''; flex: 1; height: 1px; background: var(--gray-200); }
 </style>
 </head>
 <body>
 
-<div class="platform-header">
-  <div class="platform-top">
-    <div class="platform-brand">
-      <h1>REVIVA</h1>
-      <p>Plataforma de conteúdo · Cláudia · João Pessoa</p>
+<div class="header">
+  <div class="header-inner">
+    <div class="header-top">
+      <div class="brand">
+        <div class="brand-name">REVIVA</div>
+        <div class="brand-sub">Cláudia · João Pessoa · 25–28 mai</div>
+      </div>
+      <div class="progress-badge">
+        <div class="progress-badge-pct" id="global-pct">0%</div>
+        <div class="progress-badge-label">CONCLUÍDO</div>
+      </div>
     </div>
-    <div class="platform-meta">
-      <div class="meta-item">Período: <span>25–28 mai 2026</span></div>
-      <div class="meta-item">Reels: <span>8 roteiros</span></div>
-      <div class="meta-item">Takes: <span>12 gravações</span></div>
+    <div class="nav-tabs">
+      <div class="nav-tab active" onclick="switchView('calendar',this)">Calendário</div>
+      <div class="nav-tab" onclick="switchView('roteiros',this)">Roteiros</div>
+      <div class="nav-tab" onclick="switchView('checklist',this)">Checklist</div>
     </div>
-  </div>
-  <div class="tabs">
-    <div class="tab active" onclick="switchView('calendar',this)">Calendário</div>
-    <div class="tab" onclick="switchView('roteiros',this)">Roteiros</div>
-    <div class="tab" onclick="switchView('checklist',this)">Checklist de Takes</div>
   </div>
 </div>
 
 <div class="main">
 
+<!-- CALENDAR VIEW -->
 <div class="view active" id="view-calendar">
-  <div class="cal-grid">
-    <div class="day-col">
-      <div class="day-num">25</div>
-      <div class="day-name">Segunda</div>
-      <div class="day-date">Maio 2026</div>
-      <div class="day-divider"></div>
-      <button class="reel-btn" onclick="openDrawer('a1')">
-        <div class="reel-agency agency-azul">✈ Azul Viagens</div>
-        <div class="reel-title-short">Piscinas naturais de João Pessoa</div>
-        <div class="reel-hook-preview">"Essa praia não vai existir daqui a duas horas."</div>
-        <div class="reel-tags-row"><span class="rtag">destino</span><span class="rtag">curiosidade</span></div>
-      </button>
-      <button class="reel-btn" onclick="openDrawer('d1')">
-        <div class="reel-agency agency-declara">◆ Declara</div>
-        <div class="reel-title-short">João Pessoa pra família atípica</div>
-        <div class="reel-hook-preview">"João Pessoa é o destino mais tranquilo que já recomendei."</div>
-        <div class="reel-tags-row"><span class="rtag">destino</span><span class="rtag">identificação</span></div>
-      </button>
-    </div>
-    <div class="day-col">
-      <div class="day-num">26</div>
-      <div class="day-name">Terça</div>
-      <div class="day-date">Maio 2026</div>
-      <div class="day-divider"></div>
-      <button class="reel-btn" onclick="openDrawer('a2')">
-        <div class="reel-agency agency-azul">✈ Azul Viagens</div>
-        <div class="reel-title-short">O sol nasce primeiro aqui</div>
-        <div class="reel-hook-preview">"O sol nasce primeiro aqui."</div>
-        <div class="reel-tags-row"><span class="rtag">curiosidade</span><span class="rtag">Copa do Mundo</span></div>
-      </button>
-      <button class="reel-btn" onclick="openDrawer('d2')">
-        <div class="reel-agency agency-declara">◆ Declara</div>
-        <div class="reel-title-short">O hotel do Hulk recebe criança autista?</div>
-        <div class="reel-hook-preview">"O hotel do Hulk recebe criança autista?"</div>
-        <div class="reel-tags-row"><span class="rtag">BA'RA Hotel</span><span class="rtag">experiência</span></div>
-      </button>
-    </div>
-    <div class="day-col">
-      <div class="day-num">27</div>
-      <div class="day-name">Quarta</div>
-      <div class="day-date">Maio 2026</div>
-      <div class="day-divider"></div>
-      <button class="reel-btn" onclick="openDrawer('a3')">
-        <div class="reel-agency agency-azul">✈ Azul Viagens</div>
-        <div class="reel-title-short">Quanto custa o hotel do Hulk</div>
-        <div class="reel-hook-preview">"Quanto custa ficar hospedada no hotel do Hulk?"</div>
-        <div class="reel-tags-row"><span class="rtag">BA'RA Hotel</span><span class="rtag">valores</span></div>
-      </button>
-      <button class="reel-btn" onclick="openDrawer('d3')">
-        <div class="reel-agency agency-declara">◆ Declara</div>
-        <div class="reel-title-short">Minha rotina de volta de viagem</div>
-        <div class="reel-hook-preview">"Minha rotina de volta de viagem."</div>
-        <div class="reel-tags-row"><span class="rtag">mala</span><span class="rtag">organização</span></div>
-      </button>
-    </div>
-    <div class="day-col">
-      <div class="day-num">28</div>
-      <div class="day-name">Quinta</div>
-      <div class="day-date">Maio 2026</div>
-      <div class="day-divider"></div>
-      <button class="reel-btn" onclick="openDrawer('a4')">
-        <div class="reel-agency agency-azul">✈ Azul Viagens</div>
-        <div class="reel-title-short">O que saber antes de comprar o voo</div>
-        <div class="reel-hook-preview">"Tô saindo de João Pessoa. Tem uma coisa sobre esse voo."</div>
-        <div class="reel-tags-row"><span class="rtag">voo de volta</span><span class="rtag">dica prática</span></div>
-      </button>
-      <button class="reel-btn" onclick="openDrawer('d4')">
-        <div class="reel-agency agency-declara">◆ Declara</div>
-        <div class="reel-title-short">Melhor poltrona pra criança atípica</div>
-        <div class="reel-hook-preview">"Qual a melhor poltrona do avião pra criança atípica?"</div>
-        <div class="reel-tags-row"><span class="rtag">dica prática</span><span class="rtag">embarque</span></div>
-      </button>
-    </div>
-  </div>
-</div>
 
-<div class="view" id="view-roteiros">
-  <div class="roteiros-list">
-    <div class="roteiro-row" onclick="openDrawer('a1')"><div class="roteiro-day-badge">25/05 · Dia 1</div><div class="roteiro-agency-dot dot-azul"></div><div class="roteiro-info"><div class="roteiro-info-title">Piscinas naturais de João Pessoa</div><div class="roteiro-info-hook">"Essa praia não vai existir daqui a duas horas."</div></div><div class="roteiro-arrow">›</div></div>
-    <div class="roteiro-row" onclick="openDrawer('d1')"><div class="roteiro-day-badge">25/05 · Dia 1</div><div class="roteiro-agency-dot dot-declara"></div><div class="roteiro-info"><div class="roteiro-info-title">João Pessoa pra família atípica</div><div class="roteiro-info-hook">"João Pessoa é o destino mais tranquilo que já recomendei."</div></div><div class="roteiro-arrow">›</div></div>
-    <div class="roteiro-row" onclick="openDrawer('a2')"><div class="roteiro-day-badge">26/05 · Dia 2</div><div class="roteiro-agency-dot dot-azul"></div><div class="roteiro-info"><div class="roteiro-info-title">O sol nasce primeiro aqui</div><div class="roteiro-info-hook">"O sol nasce primeiro aqui."</div></div><div class="roteiro-arrow">›</div></div>
-    <div class="roteiro-row" onclick="openDrawer('d2')"><div class="roteiro-day-badge">26/05 · Dia 2</div><div class="roteiro-agency-dot dot-declara"></div><div class="roteiro-info"><div class="roteiro-info-title">O hotel do Hulk recebe criança autista?</div><div class="roteiro-info-hook">"O hotel do Hulk recebe criança autista?"</div></div><div class="roteiro-arrow">›</div></div>
-    <div class="roteiro-row" onclick="openDrawer('a3')"><div class="roteiro-day-badge">27/05 · Dia 3</div><div class="roteiro-agency-dot dot-azul"></div><div class="roteiro-info"><div class="roteiro-info-title">Quanto custa o hotel do Hulk</div><div class="roteiro-info-hook">"Quanto custa ficar hospedada no hotel do Hulk?"</div></div><div class="roteiro-arrow">›</div></div>
-    <div class="roteiro-row" onclick="openDrawer('d3')"><div class="roteiro-day-badge">27/05 · Dia 3</div><div class="roteiro-agency-dot dot-declara"></div><div class="roteiro-info"><div class="roteiro-info-title">Minha rotina de volta de viagem</div><div class="roteiro-info-hook">"Minha rotina de volta de viagem."</div></div><div class="roteiro-arrow">›</div></div>
-    <div class="roteiro-row" onclick="openDrawer('a4')"><div class="roteiro-day-badge">28/05 · Dia 4</div><div class="roteiro-agency-dot dot-azul"></div><div class="roteiro-info"><div class="roteiro-info-title">O que saber antes de comprar o voo</div><div class="roteiro-info-hook">"Tô saindo de João Pessoa. Tem uma coisa sobre esse voo."</div></div><div class="roteiro-arrow">›</div></div>
-    <div class="roteiro-row" onclick="openDrawer('d4')"><div class="roteiro-day-badge">28/05 · Dia 4</div><div class="roteiro-agency-dot dot-declara"></div><div class="roteiro-info"><div class="roteiro-info-title">Melhor poltrona pra criança atípica</div><div class="roteiro-info-hook">"Qual a melhor poltrona do avião pra criança atípica?"</div></div><div class="roteiro-arrow">›</div></div>
-  </div>
-</div>
-
-<div class="view" id="view-checklist">
-  <div class="check-progress">
-    <div class="progress-text"><span>Takes concluídos</span><span id="prog-text">0 / 12</span></div>
-    <div class="progress-bar"><div class="progress-fill" id="prog-fill" style="width:0%"></div></div>
-  </div>
-  <div class="checklist">
-    <div class="check-item" onclick="toggleCheck(this)"><div class="check-box"><div class="check-tick">✓</div></div><div class="check-body"><div class="check-title">Fachada e entrada do BA'RA Hotel</div><div class="check-meta"><span class="cmeta cmeta-dur">15–20s</span><span class="cmeta cmeta-pos">plano aberto + aproximação</span><span class="cmeta cmeta-tipo">vídeo sem fala</span></div><div class="check-desc">Começa da calçada mostrando a fachada, depois caminha em direção à entrada.</div></div></div>
-    <div class="check-item" onclick="toggleCheck(this)"><div class="check-box"><div class="check-tick">✓</div></div><div class="check-body"><div class="check-title">Lobby e corredor interno</div><div class="check-meta"><span class="cmeta cmeta-dur">10–15s</span><span class="cmeta cmeta-pos">câmera na mão, tour</span><span class="cmeta cmeta-tipo">vídeo sem fala</span></div><div class="check-desc">Decoração, madeira, plantas, iluminação natural. Pega detalhes de perto.</div></div></div>
-    <div class="check-item" onclick="toggleCheck(this)"><div class="check-box"><div class="check-tick">✓</div></div><div class="check-body"><div class="check-title">Vista do quarto ou varanda</div><div class="check-meta"><span class="cmeta cmeta-dur">10s</span><span class="cmeta cmeta-pos">janela → vira pro quarto</span><span class="cmeta cmeta-tipo">vídeo + foto</span></div><div class="check-desc">Vista do mar primeiro, depois mostra o quarto. Luz natural, sem flash.</div></div></div>
-    <div class="check-item" onclick="toggleCheck(this)"><div class="check-box"><div class="check-tick">✓</div></div><div class="check-body"><div class="check-title">Rooftop Orama — visão geral</div><div class="check-meta"><span class="cmeta cmeta-dur">15–20s</span><span class="cmeta cmeta-pos">plano aberto girando 180°</span><span class="cmeta cmeta-tipo">vídeo sem fala</span></div><div class="check-desc">Espaço do restaurante terminando na vista do mar. Golden hour se possível.</div></div></div>
-    <div class="check-item" onclick="toggleCheck(this)"><div class="check-box"><div class="check-tick">✓</div></div><div class="check-body"><div class="check-title">Drink no Orama — detalhe</div><div class="check-meta"><span class="cmeta cmeta-dur">10s</span><span class="cmeta cmeta-pos">close no copo → abre pro mar</span><span class="cmeta cmeta-tipo">vídeo + foto</span></div><div class="check-desc">Mandacaru Mule ou drink autoral. Close no copo, depois revela o mar ao fundo.</div></div></div>
-    <div class="check-item" onclick="toggleCheck(this)"><div class="check-box"><div class="check-tick">✓</div></div><div class="check-body"><div class="check-title">Piscina do hotel com vista pro mar</div><div class="check-meta"><span class="cmeta cmeta-dur">10s</span><span class="cmeta cmeta-pos">de cima + plano lateral</span><span class="cmeta cmeta-tipo">vídeo + foto</span></div><div class="check-desc">Piscina com o mar ao fundo. Com sol, melhor.</div></div></div>
-    <div class="check-item" onclick="toggleCheck(this)"><div class="check-box"><div class="check-tick">✓</div></div><div class="check-body"><div class="check-title">Piscinas naturais — paisagem geral</div><div class="check-meta"><span class="cmeta cmeta-dur">20s</span><span class="cmeta cmeta-pos">plano aberto + close na água</span><span class="cmeta cmeta-tipo">vídeo sem fala</span></div><div class="check-desc">Banco de areia, água transparente. Fecha na superfície da água.</div></div></div>
-    <div class="check-item" onclick="toggleCheck(this)"><div class="check-box"><div class="check-tick">✓</div></div><div class="check-body"><div class="check-title">Cláudia dentro da piscina natural falando</div><div class="check-meta"><span class="cmeta cmeta-dur">60s</span><span class="cmeta cmeta-pos">plano médio, bastão ou mão</span><span class="cmeta cmeta-tipo">reel com fala</span></div><div class="check-desc">Gravação principal Azul Dia 1. Água visível ao redor. Sem óculos na hora da fala.</div></div></div>
-    <div class="check-item" onclick="toggleCheck(this)"><div class="check-box"><div class="check-tick">✓</div></div><div class="check-body"><div class="check-title">Orla de Cabo Branco — caminhando</div><div class="check-meta"><span class="cmeta cmeta-dur">15s</span><span class="cmeta cmeta-pos">frente + costas com o mar</span><span class="cmeta cmeta-tipo">vídeo sem fala</span></div><div class="check-desc">Plano de frente (câmera de ré) e depois de costas com o mar.</div></div></div>
-    <div class="check-item" onclick="toggleCheck(this)"><div class="check-box"><div class="check-tick">✓</div></div><div class="check-body"><div class="check-title">Ponta do Seixas — Porta do Sol</div><div class="check-meta"><span class="cmeta cmeta-dur">15s</span><span class="cmeta cmeta-pos">marco + ela olhando o horizonte</span><span class="cmeta cmeta-tipo">vídeo + foto</span></div><div class="check-desc">Marco geográfico se tiver placa. Depois ela de costas olhando o horizonte.</div></div></div>
-    <div class="check-item" onclick="toggleCheck(this)"><div class="check-box"><div class="check-tick">✓</div></div><div class="check-body"><div class="check-title">Restaurante Iocá — mesa e prato</div><div class="check-meta"><span class="cmeta cmeta-dur">10s</span><span class="cmeta cmeta-pos">close no prato → abre pro salão</span><span class="cmeta cmeta-tipo">vídeo + foto</span></div><div class="check-desc">Detalhe da apresentação do prato, depois mostra o salão. Sem flash.</div></div></div>
-    <div class="check-item" onclick="toggleCheck(this)"><div class="check-box"><div class="check-tick">✓</div></div><div class="check-body"><div class="check-title">Aeroporto — saída de João Pessoa</div><div class="check-meta"><span class="cmeta cmeta-dur">10–15s</span><span class="cmeta cmeta-pos">ela com a mala, painel ao fundo</span><span class="cmeta cmeta-tipo">vídeo sem fala</span></div><div class="check-desc">Painel de destinos visível se possível. Tom de quem tá indo embora com saudade.</div></div></div>
-  </div>
-</div>
-
-</div>
-
-<div class="detail-overlay" id="overlay" onclick="closeOnOverlay(event)">
-  <div class="detail-drawer" id="drawer">
-    <div class="drawer-handle"></div>
-    <div class="drawer-header">
-      <div>
-        <div class="drawer-agency" id="d-agency"></div>
-        <div class="drawer-title" id="d-title"></div>
+  <!-- META DO DIA -->
+  <div class="meta-banner">
+    <div class="meta-label">📍 Meta de hoje</div>
+    <div class="meta-title" id="meta-title">Gravar Reels das piscinas naturais e da poltrona do avião</div>
+    <div class="meta-progress-row">
+      <div class="meta-bar-wrap">
+        <div class="meta-bar-fill" id="meta-bar" style="width:0%"></div>
       </div>
-      <div class="close-x" onclick="closeDrawer()">✕</div>
+      <div class="meta-pct" id="meta-pct">0%</div>
     </div>
-    <div class="drawer-tabs">
-      <div class="dtab active" onclick="switchDTab('roteiro',this)">Roteiro</div>
-      <div class="dtab" onclick="switchDTab('legenda',this)">Legenda</div>
+    <div class="meta-tasks" id="meta-tasks">0 de 2 reels gravados hoje</div>
+  </div>
+
+  <!-- DIA 25 -->
+  <div class="day-section">
+    <div class="day-header">
+      <div class="day-num">25</div>
+      <div class="day-info">
+        <div class="day-name">Segunda <span class="day-today">HOJE</span></div>
+        <div class="day-month">Maio 2026</div>
+      </div>
     </div>
-    <div class="drawer-content">
+
+    <div class="reel-card" onclick="openDrawer('a1')">
+      <div class="reel-card-top">
+        <div class="reel-agency-row">
+          <div class="agency-dot dot-azul"></div>
+          <div class="agency-label label-azul">Azul Viagens</div>
+          <div class="agency-badge badge-azul">✈ REEL 1</div>
+        </div>
+        <div class="reel-title">Piscinas naturais de João Pessoa</div>
+        <div class="reel-hook hook-azul">"Essa praia não vai existir daqui a duas horas."</div>
+        <div class="reel-tags"><span class="rtag rtag-azul">destino</span><span class="rtag rtag-azul">curiosidade</span></div>
+      </div>
+      <div class="reel-card-footer">
+        <div class="reel-footer-label">Ver roteiro completo</div>
+        <div class="reel-arrow arrow-azul">›</div>
+      </div>
+    </div>
+
+    <div class="reel-card" onclick="openDrawer('d1')">
+      <div class="reel-card-top">
+        <div class="reel-agency-row">
+          <div class="agency-dot dot-declara"></div>
+          <div class="agency-label label-declara">Declara</div>
+          <div class="agency-badge badge-declara">◆ REEL 1</div>
+        </div>
+        <div class="reel-title">João Pessoa pra família atípica</div>
+        <div class="reel-hook hook-declara">"João Pessoa é o destino mais tranquilo que já recomendei pra mãe de criança atípica."</div>
+        <div class="reel-tags"><span class="rtag rtag-declara">destino</span><span class="rtag rtag-declara">identificação</span></div>
+      </div>
+      <div class="reel-card-footer">
+        <div class="reel-footer-label">Ver roteiro completo</div>
+        <div class="reel-arrow arrow-declara">›</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- DIA 26 -->
+  <div class="day-section">
+    <div class="day-header">
+      <div class="day-num">26</div>
+      <div class="day-info">
+        <div class="day-name">Terça</div>
+        <div class="day-month">Maio 2026</div>
+      </div>
+    </div>
+    <div class="reel-card" onclick="openDrawer('a2')">
+      <div class="reel-card-top">
+        <div class="reel-agency-row">
+          <div class="agency-dot dot-azul"></div>
+          <div class="agency-label label-azul">Azul Viagens</div>
+          <div class="agency-badge badge-azul">✈ REEL 2</div>
+        </div>
+        <div class="reel-title">O sol nasce primeiro aqui</div>
+        <div class="reel-hook hook-azul">"O sol nasce primeiro aqui."</div>
+        <div class="reel-tags"><span class="rtag rtag-azul">curiosidade</span><span class="rtag rtag-azul">Copa do Mundo</span></div>
+      </div>
+      <div class="reel-card-footer">
+        <div class="reel-footer-label">Ver roteiro completo</div>
+        <div class="reel-arrow arrow-azul">›</div>
+      </div>
+    </div>
+    <div class="reel-card" onclick="openDrawer('d2')">
+      <div class="reel-card-top">
+        <div class="reel-agency-row">
+          <div class="agency-dot dot-declara"></div>
+          <div class="agency-label label-declara">Declara</div>
+          <div class="agency-badge badge-declara">◆ REEL 2</div>
+        </div>
+        <div class="reel-title">O hotel do Hulk recebe criança autista?</div>
+        <div class="reel-hook hook-declara">"O hotel do Hulk recebe criança autista?"</div>
+        <div class="reel-tags"><span class="rtag rtag-declara">BA'RA Hotel</span><span class="rtag rtag-declara">experiência</span></div>
+      </div>
+      <div class="reel-card-footer">
+        <div class="reel-footer-label">Ver roteiro completo</div>
+        <div class="reel-arrow arrow-declara">›</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- DIA 27 -->
+  <div class="day-section">
+    <div class="day-header">
+      <div class="day-num">27</div>
+      <div class="day-info">
+        <div class="day-name">Quarta</div>
+        <div class="day-month">Maio 2026</div>
+      </div>
+    </div>
+    <div class="reel-card" onclick="openDrawer('a3')">
+      <div class="reel-card-top">
+        <div class="reel-agency-row">
+          <div class="agency-dot dot-azul"></div>
+          <div class="agency-label label-azul">Azul Viagens</div>
+          <div class="agency-badge badge-azul">✈ REEL 3</div>
+        </div>
+        <div class="reel-title">Quanto custa ficar hospedada no hotel do Hulk</div>
+        <div class="reel-hook hook-azul">"Quanto custa ficar hospedada no hotel do Hulk?"</div>
+        <div class="reel-tags"><span class="rtag rtag-azul">BA'RA Hotel</span><span class="rtag rtag-azul">valores</span></div>
+      </div>
+      <div class="reel-card-footer">
+        <div class="reel-footer-label">Ver roteiro completo</div>
+        <div class="reel-arrow arrow-azul">›</div>
+      </div>
+    </div>
+    <div class="reel-card" onclick="openDrawer('d3')">
+      <div class="reel-card-top">
+        <div class="reel-agency-row">
+          <div class="agency-dot dot-declara"></div>
+          <div class="agency-label label-declara">Declara</div>
+          <div class="agency-badge badge-declara">◆ REEL 3</div>
+        </div>
+        <div class="reel-title">Minha rotina de volta de viagem</div>
+        <div class="reel-hook hook-declara">"Minha rotina de volta de viagem."</div>
+        <div class="reel-tags"><span class="rtag rtag-declara">mala</span><span class="rtag rtag-declara">organização</span></div>
+      </div>
+      <div class="reel-card-footer">
+        <div class="reel-footer-label">Ver roteiro completo</div>
+        <div class="reel-arrow arrow-declara">›</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- DIA 28 -->
+  <div class="day-section">
+    <div class="day-header">
+      <div class="day-num">28</div>
+      <div class="day-info">
+        <div class="day-name">Quinta</div>
+        <div class="day-month">Maio 2026</div>
+      </div>
+    </div>
+    <div class="reel-card" onclick="openDrawer('a4')">
+      <div class="reel-card-top">
+        <div class="reel-agency-row">
+          <div class="agency-dot dot-azul"></div>
+          <div class="agency-label label-azul">Azul Viagens</div>
+          <div class="agency-badge badge-azul">✈ REEL 4</div>
+        </div>
+        <div class="reel-title">O que saber antes de comprar o voo</div>
+        <div class="reel-hook hook-azul">"Tô saindo de João Pessoa. Tem uma coisa sobre esse voo."</div>
+        <div class="reel-tags"><span class="rtag rtag-azul">voo de volta</span><span class="rtag rtag-azul">dica prática</span></div>
+      </div>
+      <div class="reel-card-footer">
+        <div class="reel-footer-label">Ver roteiro completo</div>
+        <div class="reel-arrow arrow-azul">›</div>
+      </div>
+    </div>
+    <div class="reel-card" onclick="openDrawer('d4')">
+      <div class="reel-card-top">
+        <div class="reel-agency-row">
+          <div class="agency-dot dot-declara"></div>
+          <div class="agency-label label-declara">Declara</div>
+          <div class="agency-badge badge-declara">◆ REEL 4</div>
+        </div>
+        <div class="reel-title">Melhor poltrona do avião pra criança atípica</div>
+        <div class="reel-hook hook-declara">"Qual a melhor poltrona do avião pra criança atípica?"</div>
+        <div class="reel-tags"><span class="rtag rtag-declara">dica prática</span><span class="rtag rtag-declara">embarque</span></div>
+      </div>
+      <div class="reel-card-footer">
+        <div class="reel-footer-label">Ver roteiro completo</div>
+        <div class="reel-arrow arrow-declara">›</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ROTEIROS VIEW -->
+<div class="view" id="view-roteiros">
+  <div class="section-divider">Azul Viagens</div>
+  <div class="roteiros-list">
+    <div class="roteiro-row" onclick="openDrawer('a1')"><div class="roteiro-dot dot-azul"></div><div class="roteiro-info"><div class="roteiro-day">25/05 · Dia 1</div><div class="roteiro-title">Piscinas naturais de João Pessoa</div><div class="roteiro-hook">"Essa praia não vai existir daqui a duas horas."</div></div><div class="roteiro-arrow">›</div></div>
+    <div class="roteiro-row" onclick="openDrawer('a2')"><div class="roteiro-dot dot-azul"></div><div class="roteiro-info"><div class="roteiro-day">26/05 · Dia 2</div><div class="roteiro-title">O sol nasce primeiro aqui</div><div class="roteiro-hook">"O sol nasce primeiro aqui."</div></div><div class="roteiro-arrow">›</div></div>
+    <div class="roteiro-row" onclick="openDrawer('a3')"><div class="roteiro-dot dot-azul"></div><div class="roteiro-info"><div class="roteiro-day">27/05 · Dia 3</div><div class="roteiro-title">Quanto custa ficar hospedada no hotel do Hulk</div><div class="roteiro-hook">"Quanto custa ficar hospedada no hotel do Hulk?"</div></div><div class="roteiro-arrow">›</div></div>
+    <div class="roteiro-row" onclick="openDrawer('a4')"><div class="roteiro-dot dot-azul"></div><div class="roteiro-info"><div class="roteiro-day">28/05 · Dia 4</div><div class="roteiro-title">O que saber antes de comprar o voo</div><div class="roteiro-hook">"Tô saindo de João Pessoa. Tem uma coisa sobre esse voo."</div></div><div class="roteiro-arrow">›</div></div>
+  </div>
+  <div class="section-divider">Declara Viagens</div>
+  <div class="roteiros-list">
+    <div class="roteiro-row" onclick="openDrawer('d1')"><div class="roteiro-dot dot-declara"></div><div class="roteiro-info"><div class="roteiro-day">25/05 · Dia 1</div><div class="roteiro-title">João Pessoa pra família atípica</div><div class="roteiro-hook">"João Pessoa é o destino mais tranquilo que já recomendei."</div></div><div class="roteiro-arrow">›</div></div>
+    <div class="roteiro-row" onclick="openDrawer('d2')"><div class="roteiro-dot dot-declara"></div><div class="roteiro-info"><div class="roteiro-day">26/05 · Dia 2</div><div class="roteiro-title">O hotel do Hulk recebe criança autista?</div><div class="roteiro-hook">"O hotel do Hulk recebe criança autista?"</div></div><div class="roteiro-arrow">›</div></div>
+    <div class="roteiro-row" onclick="openDrawer('d3')"><div class="roteiro-dot dot-declara"></div><div class="roteiro-info"><div class="roteiro-day">27/05 · Dia 3</div><div class="roteiro-title">Minha rotina de volta de viagem</div><div class="roteiro-hook">"Minha rotina de volta de viagem."</div></div><div class="roteiro-arrow">›</div></div>
+    <div class="roteiro-row" onclick="openDrawer('d4')"><div class="roteiro-dot dot-declara"></div><div class="roteiro-info"><div class="roteiro-day">28/05 · Dia 4</div><div class="roteiro-title">Melhor poltrona do avião pra criança atípica</div><div class="roteiro-hook">"Qual a melhor poltrona do avião pra criança atípica?"</div></div><div class="roteiro-arrow">›</div></div>
+  </div>
+</div>
+
+<!-- CHECKLIST VIEW -->
+<div class="view" id="view-checklist">
+  <div class="checklist-header">
+    <div class="checklist-title-row">
+      <div class="checklist-title">Takes de gravação</div>
+      <div class="pct-circle">
+        <svg viewBox="0 0 36 36">
+          <circle class="pct-bg" cx="18" cy="18" r="18"/>
+          <circle class="pct-fill" id="circle-fill" cx="18" cy="18" r="18"/>
+        </svg>
+        <div class="pct-text" id="circle-pct">0%</div>
+      </div>
+    </div>
+    <div class="checklist-bar-wrap">
+      <div class="checklist-bar-fill" id="check-bar" style="width:0%"></div>
+    </div>
+    <div class="checklist-bar-text"><span id="check-count">0</span> de 12 takes concluídos</div>
+  </div>
+  <div class="check-list" id="checklist">
+    <div class="check-item" onclick="toggleCheck(this)"><div class="checkbox"><span class="checkmark">✓</span></div><div class="check-body"><div class="check-title">Fachada e entrada do BA'RA Hotel</div><div class="check-metas"><span class="cmeta cmeta-dur">15–20s</span><span class="cmeta cmeta-pos">plano aberto + aproximação</span><span class="cmeta cmeta-tipo">vídeo sem fala</span></div><div class="check-desc">Começa da calçada, depois caminha em direção à entrada.</div></div></div>
+    <div class="check-item" onclick="toggleCheck(this)"><div class="checkbox"><span class="checkmark">✓</span></div><div class="check-body"><div class="check-title">Lobby e corredor interno</div><div class="check-metas"><span class="cmeta cmeta-dur">10–15s</span><span class="cmeta cmeta-pos">câmera na mão, tour</span><span class="cmeta cmeta-tipo">vídeo sem fala</span></div><div class="check-desc">Madeira, plantas, iluminação natural. Pega detalhes de perto.</div></div></div>
+    <div class="check-item" onclick="toggleCheck(this)"><div class="checkbox"><span class="checkmark">✓</span></div><div class="check-body"><div class="check-title">Vista do quarto ou varanda</div><div class="check-metas"><span class="cmeta cmeta-dur">10s</span><span class="cmeta cmeta-pos">janela → vira pro quarto</span><span class="cmeta cmeta-tipo">vídeo + foto</span></div><div class="check-desc">Vista do mar primeiro, depois mostra o quarto. Luz natural.</div></div></div>
+    <div class="check-item" onclick="toggleCheck(this)"><div class="checkbox"><span class="checkmark">✓</span></div><div class="check-body"><div class="check-title">Rooftop Orama — visão geral</div><div class="check-metas"><span class="cmeta cmeta-dur">15–20s</span><span class="cmeta cmeta-pos">girando 180°</span><span class="cmeta cmeta-tipo">vídeo sem fala</span></div><div class="check-desc">Restaurante terminando na vista do mar. Golden hour se possível.</div></div></div>
+    <div class="check-item" onclick="toggleCheck(this)"><div class="checkbox"><span class="checkmark">✓</span></div><div class="check-body"><div class="check-title">Drink no Orama — detalhe</div><div class="check-metas"><span class="cmeta cmeta-dur">10s</span><span class="cmeta cmeta-pos">close no copo → mar</span><span class="cmeta cmeta-tipo">vídeo + foto</span></div><div class="check-desc">Mandacaru Mule. Close no copo, depois revela o mar ao fundo.</div></div></div>
+    <div class="check-item" onclick="toggleCheck(this)"><div class="checkbox"><span class="checkmark">✓</span></div><div class="check-body"><div class="check-title">Piscina do hotel com vista pro mar</div><div class="check-metas"><span class="cmeta cmeta-dur">10s</span><span class="cmeta cmeta-pos">de cima + lateral</span><span class="cmeta cmeta-tipo">vídeo + foto</span></div><div class="check-desc">Piscina com o mar ao fundo. Com sol, melhor.</div></div></div>
+    <div class="check-item" onclick="toggleCheck(this)"><div class="checkbox"><span class="checkmark">✓</span></div><div class="check-body"><div class="check-title">Piscinas naturais — paisagem geral</div><div class="check-metas"><span class="cmeta cmeta-dur">20s</span><span class="cmeta cmeta-pos">plano aberto + close na água</span><span class="cmeta cmeta-tipo">vídeo sem fala</span></div><div class="check-desc">Banco de areia, água transparente. Fecha na superfície.</div></div></div>
+    <div class="check-item" onclick="toggleCheck(this)"><div class="checkbox"><span class="checkmark">✓</span></div><div class="check-body"><div class="check-title">Cláudia nas piscinas naturais falando</div><div class="check-metas"><span class="cmeta cmeta-dur">60s</span><span class="cmeta cmeta-pos">plano médio, bastão ou mão</span><span class="cmeta cmeta-tipo">reel com fala</span></div><div class="check-desc">Reel Azul Dia 1. Água visível. Sem óculos na hora da fala.</div></div></div>
+    <div class="check-item" onclick="toggleCheck(this)"><div class="checkbox"><span class="checkmark">✓</span></div><div class="check-body"><div class="check-title">Orla de Cabo Branco — caminhando</div><div class="check-metas"><span class="cmeta cmeta-dur">15s</span><span class="cmeta cmeta-pos">frente + costas com o mar</span><span class="cmeta cmeta-tipo">vídeo sem fala</span></div><div class="check-desc">Plano de frente (câmera de ré) e depois de costas com o mar.</div></div></div>
+    <div class="check-item" onclick="toggleCheck(this)"><div class="checkbox"><span class="checkmark">✓</span></div><div class="check-body"><div class="check-title">Ponta do Seixas — Porta do Sol</div><div class="check-metas"><span class="cmeta cmeta-dur">15s</span><span class="cmeta cmeta-pos">marco + horizonte</span><span class="cmeta cmeta-tipo">vídeo + foto</span></div><div class="check-desc">Marco geográfico + ela de costas olhando o horizonte.</div></div></div>
+    <div class="check-item" onclick="toggleCheck(this)"><div class="checkbox"><span class="checkmark">✓</span></div><div class="check-body"><div class="check-title">Restaurante Iocá — mesa e prato</div><div class="check-metas"><span class="cmeta cmeta-dur">10s</span><span class="cmeta cmeta-pos">close no prato → salão</span><span class="cmeta cmeta-tipo">vídeo + foto</span></div><div class="check-desc">Apresentação do prato, depois mostra o salão. Sem flash.</div></div></div>
+    <div class="check-item" onclick="toggleCheck(this)"><div class="checkbox"><span class="checkmark">✓</span></div><div class="check-body"><div class="check-title">Aeroporto — saída de João Pessoa</div><div class="check-metas"><span class="cmeta cmeta-dur">10–15s</span><span class="cmeta cmeta-pos">mala + painel ao fundo</span><span class="cmeta cmeta-tipo">vídeo sem fala</span></div><div class="check-desc">Painel de destinos visível se possível. Tom de saudade.</div></div></div>
+  </div>
+</div>
+
+</div>
+
+<!-- DRAWER -->
+<div class="overlay" id="overlay" onclick="closeOnOverlay(event)">
+  <div class="drawer" id="drawer">
+    <div class="drawer-handle"></div>
+    <div class="drawer-header" style="position:relative">
+      <div class="drawer-agency-row" id="d-agency-row"></div>
+      <div class="drawer-title" id="d-title"></div>
+      <button class="drawer-close" onclick="closeDrawer()">✕</button>
+    </div>
+    <div class="drawer-tabs" id="d-tabs">
+      <div class="dtab active-azul" id="dtab-roteiro" onclick="switchDTab('roteiro')">Roteiro</div>
+      <div class="dtab" id="dtab-legenda" onclick="switchDTab('legenda')">Legenda</div>
+    </div>
+    <div class="drawer-body">
       <div class="dc-view active" id="dc-roteiro"></div>
       <div class="dc-view" id="dc-legenda"></div>
     </div>
@@ -271,51 +474,81 @@ body { background: var(--bg); color: var(--text); font-family: 'DM Sans', sans-s
 
 <script>
 const reels = {
-  a1: { agency:'✈ Azul Viagens', ac:'agency-azul', title:'Piscinas naturais de João Pessoa', cena:'Dentro ou na beira das piscinas naturais. Câmera já mostrando a água antes de falar. Ela entra no frame enquanto começa.', gancho:'"Essa praia não vai existir daqui a duas horas."', falaDir:'mostrando ao redor, animada', falaText:'"As piscinas naturais de João Pessoa só aparecem na maré baixa. A maré sobe — some tudo. Você não decide o horário, você se adapta a ela. E olha o que aparece quando você chega na hora certa: água morna, transparente, rasa, no meio do oceano. Tem piscina aqui que você só acessa de barco — sai da orla de Tambaú, 30 minutos navegando, e chega num banco de areia no meio do mar. João Pessoa tem 24 km de litoral e a maioria das pessoas que vem aqui não conhece nem metade do que existe."', enc:'"Manda esse vídeo pra alguém que precisava ver isso."', legenda:'As piscinas de Picãozinho e do Seixas têm horário certo pra visitar. A gente te conta qual é e monta o roteiro completo. 📍' },
-  d1: { agency:'◆ Declara', ac:'agency-declara', title:'João Pessoa pra família atípica', cena:'Na orla tranquila, água calma ao fundo. Plano próximo, tom íntimo.', gancho:'"João Pessoa é o destino mais tranquilo que já recomendei pra mãe de criança atípica."', falaDir:'pausada, olhando pra câmera', falaText:'"A cidade tem um ritmo diferente. Trânsito calmo, praias tranquilas, água rasa e morna — o tipo de mar que não assusta. Pra uma criança que precisa de ambiente previsível, com menos estímulo, com espaço pra se sentir segura — isso muda completamente a experiência. A gente não monta só o roteiro turístico. Pensa no traslado, na escolha do quarto, nos passeios com o tempo certo. Porque quando o planejamento respeita o ritmo do seu filho — você consegue aproveitar também."', enc:'"Comenta aqui se você toparia. A gente já tem o roteiro pronto."', legenda:'Viajar com criança atípica precisa de planejamento feito por quem entende. Manda mensagem. 💜' },
-  a2: { agency:'✈ Azul Viagens', ac:'agency-azul', title:'O sol nasce primeiro aqui', cena:'Na orla ou na Ponta do Seixas. Plano aberto com o mar por 1 segundo antes de falar.', gancho:'"O sol nasce primeiro aqui."', falaDir:'andando pela orla, câmera na mão', falaText:'"A Ponta do Seixas é o ponto mais oriental das Américas. Quando ainda é madrugada no resto do país, aqui já tá amanhecendo. Os paraibanos chamam esse lugar de Porta do Sol. E faz todo sentido quando você tá aqui vendo de perto. João Pessoa tem 24 km de litoral, praia própria pra banho quase a semana toda, e um ritmo que você não encontra em nenhum outro destino do Nordeste. Não é agitada como Fortaleza. Não é tomada de turista como Porto de Galinhas. Ela ainda é ela. Com a Copa do Mundo esse ano colocando o Brasil no centro do mundo — esse é o momento de descobrir o que a gente tem aqui dentro."', enc:'"Salva esse vídeo — e manda pra quem você quer trazer aqui."', legenda:'Se esse vídeo te deu vontade de ir — a gente resolve passagem, hotel e roteiro. É só mandar mensagem. 🌊' },
-  d2: { agency:'◆ Declara', ac:'agency-declara', title:'O hotel do Hulk recebe criança autista?', cena:'Na área externa — jardim ou piscina. Câmera mostrando o ambiente calmo e verde antes de falar.', gancho:'"O hotel do Hulk recebe criança autista?"', falaDir:'mostrando o hotel enquanto fala', falaText:'"O BA\'RA Hotel fica a 80 metros da praia de Cabo Branco. A primeira coisa que impressiona é o silêncio. Toda a estrutura é integrada com natureza — madeira, verde, luz natural entrando por todo lado. Não tem aquela energia de hotel lotado e barulhento. A diária começa em R$ 890 pra dois, com café da manhã incluso. Tem academia, spa, kids club com instrutores especializados e estacionamento gratuito. O restaurante Iocá serve cozinha italiana com ingredientes orgânicos. Pra uma família que precisa de ambiente controlado e tranquilo — esse hotel funciona muito melhor do que qualquer resort agitado."', enc:'"Manda esse vídeo pra outra mãe que tá precisando de uma viagem assim."', legenda:'Kids club com instrutores, ambiente silencioso, 80 metros da praia. Quer saber mais? A gente te conta tudo. 💜', nota:'📌 Claudia: confirme o valor na recepção antes de gravar.' },
-  a3: { agency:'✈ Azul Viagens', ac:'agency-azul', title:'Quanto custa ficar hospedada no hotel do Hulk', cena:'Do lado de fora do hotel, mostrando a fachada e a praia logo atrás.', gancho:'"Quanto custa ficar hospedada no hotel do Hulk?"', falaDir:'passeando pelo espaço — piscina, restaurante, rooftop', falaText:'"A diária começa em R$ 890 pra dois, com café da manhã incluso. Não é all inclusive — mas o que tem aqui dentro compensa. O hotel fica a 80 metros da praia de Cabo Branco. Você sai pela porta e a praia tá ali. O Hulk investiu R$ 80 milhões nessa estrutura — toda em madeira, integrada com a natureza, com luz natural em todo lugar. Tem dois restaurantes: o Iocá, no andar de baixo, com cozinha italiana misturada com nordestino — ingredientes orgânicos, produção artesanal, comandado pela chef Carol Panarotte. E o Orama, no rooftop. Orama significa espetáculo em tupi-guarani. Você sobe, senta com vista pro mar, e tem um consultor gastronômico que vem à sua mesa contar a história de cada drink antes de você provar. Eu pedi o Mandacaru Mule — versão nordestina do Moscow Mule, com cachaça e xarope de mandacaru. Pedi duas vezes. Tem ainda spa, academia, kids club com instrutores e estacionamento gratuito."', enc:'"Comenta aqui se você viria."', legenda:'R$ 890 a diária com café incluso, 80 metros da praia, rooftop com vista pro mar. Hospedaria? Me conta nos comentários. ✈️', nota:'📌 Claudia: confirme o valor na recepção antes de gravar.' },
-  d3: { agency:'◆ Declara', ac:'agency-declara', title:'Minha rotina de volta de viagem', cena:'No quarto do hotel, mala aberta na cama, coisas espalhadas. O caos visual já prende.', gancho:'"Minha rotina de volta de viagem."', falaDir:'organizando a mala enquanto fala', falaText:'"Primeiro: roupas usadas sempre num saco separado dentro da mala. Não mistura com o que tá limpo — chega em casa e vai direto pra máquina. Segundo: os líquidos, coloca num saquinho ziplock antes de fechar. Evita qualquer vazamento no caminho. Terceiro — e esse eu aprendi na marra: fotografa o quarto antes de sair. Carregador na tomada, óculos de sol na mesinha, chinelo embaixo da cama. A foto salva. Quarto: pesquisa o peso da mala antes de ir pro aeroporto. A franquia da maioria é 23kg — e excesso de bagagem no balcão sai muito mais caro. E o último: deixa um conjunto de roupa na mochila de mão. Se a mala atrasar — e às vezes atrasa — você tem o essencial."', enc:'"Salva esse vídeo pra próxima viagem."', legenda:'Qual dessas você já fazia? Comenta aqui. 💜' },
-  a4: { agency:'✈ Azul Viagens', ac:'agency-azul', title:'O que saber antes de comprar o voo', cena:'No aeroporto ou saindo do hotel com a mala. Tom de quem acabou de viver algo bom.', gancho:'"Tô saindo de João Pessoa. Tem uma coisa sobre esse voo."', falaDir:'no aeroporto ou no carro, câmera na mão', falaText:'"A Azul voa direto pra João Pessoa saindo de Campinas, São Paulo, Belo Horizonte, Recife e Uberlândia. Sem escala, sem conexão. O avião dessa rota é o Airbus A320 — confortável, silencioso, lanche incluso. Um detalhe que pouca gente sabe: voos que partem no início da tarde têm historicamente menos atraso nessa rota. Se tiver flexibilidade de horário — escolhe esse período. E pede o boarding prioritário na hora de comprar. Você embarca antes, se acomoda com calma. Parece pequeno, mas faz diferença — especialmente viajando com criança."', enc:'"Salva esse vídeo pra quando for comprar a passagem."', legenda:'Voo direto, lanche incluso, menos atraso no início da tarde. Se precisar de ajuda pra fechar — a gente resolve. ✈️' },
-  d4: { agency:'◆ Declara', ac:'agency-declara', title:'Melhor poltrona do avião pra criança atípica', cena:'Sentada em qualquer cadeira, plano próximo. Tom de conversa direta.', gancho:'"Qual a melhor poltrona do avião pra criança atípica?"', falaDir:'direta, pausada nos pontos importantes', falaText:'"Fila de emergência, não. Parece boa pelo espaço, mas criança não pode ficar ali — é regra da companhia. Janela no início do avião — menos movimento de passageiros, menos carrinho de serviço, menos estímulo. E o que todo mundo esquece: pede o boarding prioritário. Você embarca antes, instala a criança com calma, sem aquela fila de pressão. Parece detalhe. Mas muda como você e ela chegam lá. Vale pra qualquer companhia, qualquer rota."', enc:'"Salva esse vídeo — você vai usar na hora de comprar a passagem."', legenda:'Manda pra outra mãe que viaja com criança atípica. Esse detalhe muda o embarque inteiro. 💜' }
+  a1:{t:'azul',agency:'✈ Azul Viagens',title:'Piscinas naturais de João Pessoa',cena:'Dentro ou na beira das piscinas naturais. Câmera já mostrando a água antes de falar. Ela entra no frame enquanto começa.',gancho:'"Essa praia não vai existir daqui a duas horas."',falaDir:'mostrando ao redor, animada',falaText:'"As piscinas naturais de João Pessoa só aparecem na maré baixa. A maré sobe — some tudo. Você não decide o horário, você se adapta a ela. E olha o que aparece quando você chega na hora certa: água morna, transparente, rasa, no meio do oceano. Tem piscina aqui que você só acessa de barco — sai da orla de Tambaú, 30 minutos navegando, e chega num banco de areia no meio do mar. João Pessoa tem 24 km de litoral e a maioria das pessoas que vem aqui não conhece nem metade do que existe."',enc:'"Manda esse vídeo pra alguém que precisava ver isso."',legenda:'As piscinas de Picãozinho e do Seixas têm horário certo pra visitar. A gente te conta qual é e monta o roteiro completo. 📍'},
+  d1:{t:'declara',agency:'◆ Declara',title:'João Pessoa pra família atípica',cena:'Na orla tranquila, água calma ao fundo. Plano próximo, tom íntimo.',gancho:'"João Pessoa é o destino mais tranquilo que já recomendei pra mãe de criança atípica."',falaDir:'pausada, olhando pra câmera',falaText:'"A cidade tem um ritmo diferente. Trânsito calmo, praias tranquilas, água rasa e morna — o tipo de mar que não assusta. Pra uma criança que precisa de ambiente previsível, com menos estímulo, com espaço pra se sentir segura — isso muda completamente a experiência. A gente não monta só o roteiro turístico. Pensa no traslado, na escolha do quarto, nos passeios com o tempo certo. Porque quando o planejamento respeita o ritmo do seu filho — você consegue aproveitar também."',enc:'"Comenta aqui se você toparia. A gente já tem o roteiro pronto."',legenda:'Viajar com criança atípica precisa de planejamento feito por quem entende. Manda mensagem. 💜'},
+  a2:{t:'azul',agency:'✈ Azul Viagens',title:'O sol nasce primeiro aqui',cena:'Na orla ou na Ponta do Seixas. Plano aberto com o mar por 1 segundo antes de falar.',gancho:'"O sol nasce primeiro aqui."',falaDir:'andando pela orla, câmera na mão',falaText:'"A Ponta do Seixas é o ponto mais oriental das Américas. Quando ainda é madrugada no resto do país, aqui já tá amanhecendo. Os paraibanos chamam esse lugar de Porta do Sol. E faz todo sentido quando você tá aqui vendo de perto. João Pessoa tem 24 km de litoral, praia própria pra banho quase a semana toda, e um ritmo que você não encontra em nenhum outro destino do Nordeste. Não é agitada como Fortaleza. Não é tomada de turista como Porto de Galinhas. Ela ainda é ela. Com a Copa do Mundo esse ano colocando o Brasil no centro do mundo — esse é o momento de descobrir o que a gente tem aqui dentro."',enc:'"Salva esse vídeo — e manda pra quem você quer trazer aqui."',legenda:'Se esse vídeo te deu vontade de ir — a gente resolve passagem, hotel e roteiro. É só mandar mensagem. 🌊'},
+  d2:{t:'declara',agency:'◆ Declara',title:'O hotel do Hulk recebe criança autista?',cena:'Na área externa — jardim ou piscina. Câmera mostrando o ambiente calmo e verde antes de falar.',gancho:'"O hotel do Hulk recebe criança autista?"',falaDir:'mostrando o hotel enquanto fala',falaText:'"O BA\'RA Hotel fica a 80 metros da praia de Cabo Branco. A primeira coisa que impressiona é o silêncio. Toda a estrutura é integrada com natureza — madeira, verde, luz natural entrando por todo lado. Não tem aquela energia de hotel lotado e barulhento. A diária começa em R$ 890 pra dois, com café da manhã incluso. Tem academia, spa, kids club com instrutores especializados e estacionamento gratuito. O restaurante Iocá serve cozinha italiana com ingredientes orgânicos. Pra uma família que precisa de ambiente controlado e tranquilo — esse hotel funciona muito melhor do que qualquer resort agitado."',enc:'"Manda esse vídeo pra outra mãe que tá precisando de uma viagem assim."',legenda:'Kids club com instrutores, ambiente silencioso, 80 metros da praia. Quer saber mais? A gente te conta tudo. 💜',nota:'📌 Claudia: confirme o valor na recepção antes de gravar.'},
+  a3:{t:'azul',agency:'✈ Azul Viagens',title:'Quanto custa ficar hospedada no hotel do Hulk',cena:'Do lado de fora do hotel, mostrando a fachada e a praia logo atrás.',gancho:'"Quanto custa ficar hospedada no hotel do Hulk?"',falaDir:'passeando pelo espaço — piscina, restaurante, rooftop',falaText:'"A diária começa em R$ 890 pra dois, com café da manhã incluso. Não é all inclusive — mas o que tem aqui dentro compensa. O hotel fica a 80 metros da praia de Cabo Branco. Você sai pela porta e a praia tá ali. O Hulk investiu R$ 80 milhões nessa estrutura — toda em madeira, integrada com a natureza, com luz natural em todo lugar. Tem dois restaurantes: o Iocá, no andar de baixo, com cozinha italiana misturada com nordestino — ingredientes orgânicos, produção artesanal, comandado pela chef Carol Panarotte. E o Orama, no rooftop. Orama significa espetáculo em tupi-guarani. Você sobe, senta com vista pro mar, e tem um consultor gastronômico que vem à sua mesa contar a história de cada drink antes de você provar. Eu pedi o Mandacaru Mule — versão nordestina do Moscow Mule, com cachaça e xarope de mandacaru. Pedi duas vezes. Tem ainda spa, academia, kids club com instrutores e estacionamento gratuito."',enc:'"Comenta aqui se você viria."',legenda:'R$ 890 a diária com café incluso, 80 metros da praia, rooftop com vista pro mar. Hospedaria? Me conta nos comentários. ✈️',nota:'📌 Claudia: confirme o valor na recepção antes de gravar.'},
+  d3:{t:'declara',agency:'◆ Declara',title:'Minha rotina de volta de viagem',cena:'No quarto do hotel, mala aberta na cama, coisas espalhadas. O caos visual já prende.',gancho:'"Minha rotina de volta de viagem."',falaDir:'organizando a mala enquanto fala',falaText:'"Primeiro: roupas usadas sempre num saco separado dentro da mala. Não mistura com o que tá limpo — chega em casa e vai direto pra máquina. Segundo: os líquidos, coloca num saquinho ziplock antes de fechar. Evita qualquer vazamento no caminho. Terceiro — e esse eu aprendi na marra: fotografa o quarto antes de sair. Carregador na tomada, óculos de sol na mesinha, chinelo embaixo da cama. A foto salva. Quarto: pesquisa o peso da mala antes de ir pro aeroporto. A franquia da maioria é 23kg — e excesso de bagagem no balcão sai muito mais caro. E o último: deixa um conjunto de roupa na mochila de mão. Se a mala atrasar — e às vezes atrasa — você tem o essencial."',enc:'"Salva esse vídeo pra próxima viagem."',legenda:'Qual dessas você já fazia? Comenta aqui. 💜'},
+  a4:{t:'azul',agency:'✈ Azul Viagens',title:'O que saber antes de comprar o voo',cena:'No aeroporto ou saindo do hotel com a mala. Tom de quem acabou de viver algo bom.',gancho:'"Tô saindo de João Pessoa. Tem uma coisa sobre esse voo."',falaDir:'no aeroporto ou no carro, câmera na mão',falaText:'"A Azul voa direto pra João Pessoa saindo de Campinas, São Paulo, Belo Horizonte, Recife e Uberlândia. Sem escala, sem conexão. O avião dessa rota é o Airbus A320 — confortável, silencioso, lanche incluso. Um detalhe que pouca gente sabe: voos que partem no início da tarde têm historicamente menos atraso nessa rota. Se tiver flexibilidade de horário — escolhe esse período. E pede o boarding prioritário na hora de comprar. Você embarca antes, se acomoda com calma. Parece pequeno, mas faz diferença — especialmente viajando com criança."',enc:'"Salva esse vídeo pra quando for comprar a passagem."',legenda:'Voo direto, lanche incluso, menos atraso no início da tarde. Se precisar de ajuda pra fechar — a gente resolve. ✈️'},
+  d4:{t:'declara',agency:'◆ Declara',title:'Melhor poltrona do avião pra criança atípica',cena:'Sentada em qualquer cadeira, plano próximo. Tom de conversa direta.',gancho:'"Qual a melhor poltrona do avião pra criança atípica?"',falaDir:'direta, pausada nos pontos importantes',falaText:'"Fila de emergência, não. Parece boa pelo espaço, mas criança não pode ficar ali — é regra da companhia. Janela no início do avião — menos movimento de passageiros, menos carrinho de serviço, menos estímulo. E o que todo mundo esquece: pede o boarding prioritário. Você embarca antes, instala a criança com calma, sem aquela fila de pressão. Parece detalhe. Mas muda como você e ela chegam lá. Vale pra qualquer companhia, qualquer rota."',enc:'"Salva esse vídeo — você vai usar na hora de comprar a passagem."',legenda:'Manda pra outra mãe que viaja com criança atípica. Esse detalhe muda o embarque inteiro. 💜'}
 };
+
+let currentType = 'azul';
 
 function openDrawer(id) {
   const r = reels[id];
-  document.getElementById('d-agency').innerHTML = `<span class="${r.ac}">${r.agency}</span>`;
+  currentType = r.t;
+  const isAzul = r.t === 'azul';
+  const color = isAzul ? 'var(--azul)' : 'var(--declara)';
+  const agencyClass = isAzul ? 'label-azul' : 'label-declara';
+  const dotClass = isAzul ? 'dot-azul' : 'dot-declara';
+  const ganchoClass = isAzul ? 'gancho-azul' : 'gancho-declara';
+  const tabActive = isAzul ? 'active-azul' : 'active-declara';
+  document.getElementById('d-agency-row').innerHTML = `<div class="agency-dot ${dotClass}"></div><div class="agency-label ${agencyClass}">${r.agency}</div>`;
   document.getElementById('d-title').textContent = r.title;
-  let rot = `<div class="block"><div class="block-label">Cena</div><div class="block-cena">${r.cena}</div></div><div class="block"><div class="block-label">Gancho</div><div class="block-gancho">${r.gancho}</div></div><div class="block"><div class="block-label">Fala</div><div class="block-fala"><em>${r.falaDir}</em>${r.falaText}</div></div><div class="block"><div class="block-label">Encerramento</div><div class="block-enc">${r.enc}</div></div>`;
-  if (r.nota) rot += `<div class="block-nota">${r.nota}</div>`;
+  document.getElementById('dtab-roteiro').className = `dtab ${tabActive}`;
+  document.getElementById('dtab-legenda').className = 'dtab';
+  let rot = `<div class="dblock"><div class="dblock-label">Cena</div><div class="dblock-cena">${r.cena}</div></div><div class="dblock"><div class="dblock-label">Gancho</div><div class="dblock-gancho ${ganchoClass}">${r.gancho}</div></div><div class="dblock"><div class="dblock-label">Fala</div><div class="dblock-fala"><em>${r.falaDir}</em>${r.falaText}</div></div><div class="dblock"><div class="dblock-label">Encerramento</div><div class="dblock-enc">${r.enc}</div></div>`;
+  if(r.nota) rot += `<div class="dblock-nota">${r.nota}</div>`;
   document.getElementById('dc-roteiro').innerHTML = rot;
-  document.getElementById('dc-legenda').innerHTML = `<div class="block"><div class="block-label">Legenda</div><div class="block-cta">${r.legenda}</div></div>`;
-  switchDTab('roteiro', document.querySelector('.dtab'));
+  document.getElementById('dc-legenda').innerHTML = `<div class="dblock"><div class="dblock-label">Legenda</div><div class="dblock-cta">${r.legenda}</div></div>`;
+  document.querySelectorAll('.dc-view').forEach(v=>v.classList.remove('active'));
+  document.getElementById('dc-roteiro').classList.add('active');
   document.getElementById('overlay').classList.add('open');
+  document.body.style.overflow = 'hidden';
 }
 
-function closeDrawer() { document.getElementById('overlay').classList.remove('open'); }
-function closeOnOverlay(e) { if (e.target === document.getElementById('overlay')) closeDrawer(); }
-
-function switchDTab(tab, el) {
-  document.querySelectorAll('.dtab').forEach(t => t.classList.remove('active'));
-  document.querySelectorAll('.dc-view').forEach(v => v.classList.remove('active'));
-  document.getElementById('dc-' + tab).classList.add('active');
-  document.querySelectorAll('.dtab').forEach(t => { if ((tab === 'roteiro' && t.textContent.includes('Roteiro')) || (tab === 'legenda' && t.textContent.includes('Legenda'))) t.classList.add('active'); });
+function switchDTab(tab) {
+  const isAzul = currentType === 'azul';
+  const tabActive = isAzul ? 'active-azul' : 'active-declara';
+  document.getElementById('dtab-roteiro').className = tab === 'roteiro' ? `dtab ${tabActive}` : 'dtab';
+  document.getElementById('dtab-legenda').className = tab === 'legenda' ? `dtab ${tabActive}` : 'dtab';
+  document.querySelectorAll('.dc-view').forEach(v=>v.classList.remove('active'));
+  document.getElementById('dc-'+tab).classList.add('active');
 }
+
+function closeDrawer() {
+  document.getElementById('overlay').classList.remove('open');
+  document.body.style.overflow = '';
+}
+function closeOnOverlay(e) { if(e.target===document.getElementById('overlay')) closeDrawer(); }
 
 function switchView(v, el) {
-  document.querySelectorAll('.view').forEach(e => e.classList.remove('active'));
-  document.querySelectorAll('.tab').forEach(e => e.classList.remove('active'));
-  document.getElementById('view-' + v).classList.add('active');
+  document.querySelectorAll('.view').forEach(e=>e.classList.remove('active'));
+  document.querySelectorAll('.nav-tab').forEach(e=>e.classList.remove('active'));
+  document.getElementById('view-'+v).classList.add('active');
   el.classList.add('active');
 }
 
 function toggleCheck(item) {
   item.classList.toggle('done');
+  updateProgress();
+}
+
+function updateProgress() {
   const total = document.querySelectorAll('.check-item').length;
   const done = document.querySelectorAll('.check-item.done').length;
-  document.getElementById('prog-text').textContent = done + ' / ' + total;
-  document.getElementById('prog-fill').style.width = (done/total*100) + '%';
+  const pct = Math.round(done/total*100);
+  document.getElementById('check-count').textContent = done;
+  document.getElementById('check-bar').style.width = pct+'%';
+  document.getElementById('circle-pct').textContent = pct+'%';
+  const circumference = 113;
+  document.getElementById('circle-fill').style.strokeDashoffset = circumference - (circumference * pct/100);
+  document.getElementById('global-pct').textContent = pct+'%';
+  document.getElementById('meta-bar').style.width = pct+'%';
+  document.getElementById('meta-pct').textContent = pct+'%';
+  document.getElementById('meta-tasks').textContent = done + ' de ' + total + ' takes concluídos';
 }
 </script>
 </body>
